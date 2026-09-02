@@ -26,7 +26,7 @@ cao_roster()
 # What is actually installed against what was frozen.
 cao_versions()
 
-# An honest report: matching, drifted, or missing, and why.
+# A plain report: matching, drifted, or missing, and why.
 cao_status()
 
 # Install what is available; report the rest, never erroring as a whole.

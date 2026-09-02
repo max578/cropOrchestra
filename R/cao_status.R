@@ -1,11 +1,11 @@
-# cao_status.R -- An honest per-member status report.
+# cao_status.R -- A per-member status report.
 
 #' Report installed-and-matching, drifted, or missing, for every member
 #'
 #' @description
 #' Classifies every roster member into one of three states --
 #' `"installed_matching"`, `"installed_drifted"`, or `"missing"` -- and, for
-#' every missing member, gives the honest reason it may be missing (its
+#' every missing member, gives the reason it may be missing (its
 #' repository is not yet public, or it is public but not yet on
 #' `max578.r-universe.dev`).
 #'

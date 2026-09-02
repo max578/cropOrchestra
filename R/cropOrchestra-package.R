@@ -17,7 +17,7 @@
 #' not ship models, and it does not fail when a released member is not
 #' installed. Its four verbs are [cao_roster()] (what is in the release),
 #' [cao_versions()] (what is installed against what was frozen),
-#' [cao_status()] (an honest report, including why a member may be missing),
+#' [cao_status()] (a plain report, including why a member may be missing),
 #' and [cao_install()] (fetch what is available). [cao_check()] runs the
 #' fleet's gate scripts when a leader workspace is supplied, and otherwise
 #' falls back to a status-plus-load-check.

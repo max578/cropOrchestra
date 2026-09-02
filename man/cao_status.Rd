@@ -20,7 +20,7 @@ counts \code{n_matching}, \code{n_drifted}, \code{n_missing}. Has a \code{print}
 \description{
 Classifies every roster member into one of three states --
 \code{"installed_matching"}, \code{"installed_drifted"}, or \code{"missing"} -- and, for
-every missing member, gives the honest reason it may be missing (its
+every missing member, gives the reason it may be missing (its
 repository is not yet public, or it is public but not yet on
 \code{max578.r-universe.dev}).
 }

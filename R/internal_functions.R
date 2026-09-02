@@ -2,7 +2,7 @@
 #
 # Every Suggests access in this package is guarded by requireNamespace() and
 # funnelled through the helpers below, so a missing or not-yet-public member
-# never raises an error -- it is reported, honestly, as missing.
+# never raises an error -- it is reported, plainly, as missing.
 
 #' Look up a member's installed version, or NA
 #'
@@ -25,7 +25,7 @@
 #' @param visibility Character scalar, `"public"` or `"private"`, from the
 #'   roster's `visibility` column.
 #'
-#' @returns A character scalar, a short honest reason.
+#' @returns A character scalar, a short stated reason.
 #'
 #' @noRd
 #' @keywords internal

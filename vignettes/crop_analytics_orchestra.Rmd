@@ -58,7 +58,7 @@ cropOrchestra::cao_roster()
 | cdzoo | supporting | the causal-discovery harness |
 
 Roughly half the roster is on a private repository at the freeze date --
-`cao_status()` says so honestly, member by member, rather than pretending the
+`cao_status()` says so plainly, member by member, rather than presenting a partial install as complete rather than claiming the
 roster installs in full today.
 
 ## The necessity principle
@@ -79,7 +79,7 @@ wrapping it behind the contract rather than adding new mathematics -- is
 justified by the contract alone, and the register says so plainly rather
 than overstating its novelty.
 
-## The headline result, read honestly
+## The headline result, read with its limits
 
 Study A0 chains the orchestra end to end on a synthetic barley belt: forty
 sites on real Australian grain-belt coordinates with real climate and soil
@@ -102,7 +102,7 @@ actually gated, not asserted from memory.
 ## Install, status, check
 
 Installing the roster never fails as a whole because one member's repository
-happens to be private today. Each member's outcome is reported honestly.
+happens to be private today. Each member's outcome is reported plainly.
 
 ```{r}
 # Plan only -- no packages are touched.

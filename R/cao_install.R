@@ -1,4 +1,4 @@
-# cao_install.R -- Install what is available; report the rest honestly.
+# cao_install.R -- Install what is available; report the rest plainly.
 
 #' Install roster members from the r-universe and CRAN repositories
 #'

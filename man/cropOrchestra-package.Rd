@@ -15,7 +15,7 @@ and status checker for the released roster.
 not ship models, and it does not fail when a released member is not
 installed. Its four verbs are \code{\link[=cao_roster]{cao_roster()}} (what is in the release),
 \code{\link[=cao_versions]{cao_versions()}} (what is installed against what was frozen),
-\code{\link[=cao_status]{cao_status()}} (an honest report, including why a member may be missing),
+\code{\link[=cao_status]{cao_status()}} (a plain report, including why a member may be missing),
 and \code{\link[=cao_install]{cao_install()}} (fetch what is available). \code{\link[=cao_check]{cao_check()}} runs the
 fleet's gate scripts when a leader workspace is supplied, and otherwise
 falls back to a status-plus-load-check.

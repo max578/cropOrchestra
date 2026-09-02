@@ -15,7 +15,7 @@
     "gpfield", "kalmix", "koine", "proxymix", "optimix", "cdzoo"
   ),
   version = c(
-    "0.10.0", "0.10.1", "0.8.2", "0.3.0", "0.0.0.9000",
+    "0.10.0", "0.10.1", "0.8.2", "0.3.0", "0.1.0",
     "0.2.0", "0.11.0", "0.1.0", "0.1.1",
     "0.3.0", "0.5.0", "0.3.0", "0.15.2", "0.1.0", "0.2.0"
   ),
@@ -30,7 +30,7 @@
     "simulator inversion + ensemble UQ",
     "the TACI engine (flagship)",
     "the mechanism member",
-    "the composition layer",
+    "the consensus layer",
     "the grounded covariate source",
     "the sovereignty bridge",
     "the decision closer",

@@ -22,6 +22,7 @@ Suggests:
     cdzoo,
     decideR,
     flexyBayes,
+    ggplot2,
     gpfield,
     grainPlan,
     kalmix,

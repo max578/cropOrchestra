@@ -45,7 +45,7 @@ cropOrchestra::cao_roster()
 | PESTO | core | simulator inversion + ensemble UQ |
 | kernR | core | the TACI engine (flagship) |
 | apsimR | core | the mechanism member |
-| flexyBayesOrchestra | core | the composition layer |
+| quorum | core | the composition layer |
 | terroir | core | the grounded covariate source |
 | masque | core | the sovereignty bridge |
 | decideR | core | the decision closer |
@@ -84,7 +84,7 @@ than overstating its novelty.
 Study A0 chains the orchestra end to end on a synthetic barley belt: forty
 sites on real Australian grain-belt coordinates with real climate and soil
 covariates, a hidden subsoil constraint at twelve of them, and a mechanism
-lens (`apsimR` + `flexyBayesOrchestra` + `PESTO`), a field-agreement lens
+lens (`apsimR` + `quorum` + `PESTO`), a field-agreement lens
 (`kernR`'s TACI), a decision lens (`decideR`), a site-value lens (`optimix`),
 and a grower-facing translation (`grainPlan`). The headline number: the
 orchestra's cascade loses 2,960 AUD/ha against the planted truth over 198

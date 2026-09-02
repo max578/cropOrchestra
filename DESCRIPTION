@@ -22,7 +22,6 @@ Suggests:
     cdzoo,
     decideR,
     flexyBayes,
-    flexyBayesOrchestra,
     gpfield,
     grainPlan,
     kalmix,
@@ -34,6 +33,7 @@ Suggests:
     orchestraManifest,
     PESTO,
     proxymix,
+    quorum,
     rmarkdown,
     terroir,
     testthat (>= 3.0.0)

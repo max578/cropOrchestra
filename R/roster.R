@@ -10,7 +10,7 @@
 # ---- The frozen roster -----------------------------------------------------
 .orchestra_roster <- data.frame(
   member = c(
-    "flexyBayes", "PESTO", "kernR", "apsimR", "flexyBayesOrchestra",
+    "flexyBayes", "PESTO", "kernR", "apsimR", "quorum",
     "terroir", "masque", "decideR", "grainPlan",
     "gpfield", "kalmix", "koine", "proxymix", "optimix", "cdzoo"
   ),
@@ -50,7 +50,7 @@
   repo = paste0(
     "max578/",
     c(
-      "flexyBayes", "PESTO", "kernR", "apsimR", "flexyBayesOrchestra",
+      "flexyBayes", "PESTO", "kernR", "apsimR", "quorum",
       "terroir", "masque", "decideR", "grainPlan",
       "gpfield", "kalmix", "koine", "proxymix", "optimix", "cdzoo"
     )

@@ -1,3 +1,10 @@
+# cropOrchestra (development version)
+
+* Roster entry renamed: `flexyBayesOrchestra` is now `quorum` (`quorum_dev/quorum`,
+  `max578/quorum`), following the 2026-09-02 upstream rename and
+  re-dedication as the consensus layer. `cao_roster()`, the DESCRIPTION
+  `Suggests` list, and the vignette roster table are updated to match.
+
 # cropOrchestra 0.1.0
 
 ## New features

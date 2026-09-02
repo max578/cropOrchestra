@@ -7,69 +7,66 @@ vignette: >
   %\VignetteEncoding{UTF-8}
 ---
 
-```{r, include = FALSE}
+<!-- Render time: ~1 s under rmarkdown::render(); macOS arm64 (darwin 25.5.0),
+     R 4.5.2, one core. No install and no external gate script runs live in
+     this vignette, so the time is dominated by knitr overhead and the
+     load-check of the fifteen roster members already installed here. -->
+
+```{r setup, include = FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>",
-  eval = FALSE
+  fig.width = 7,
+  dpi = 150
 )
 ```
 
-## What this is
-
-The Crop Analytics Orchestra is a set of purpose-built R packages, published
-under the `max578` namespace, that together take a grain-production question
--- which nitrogen rate, which variety, when to test, when to harvest -- from
-raw data to a recorded decision, and refuse rather than guess where the
-evidence does not support one. Every hand-off between packages is a typed
-manifest, every abstention is a typed refusal rather than a silent `NA`, and
-every external fact a package relies on carries provenance back to its
-source. `cropOrchestra` is not itself an analytical package -- it ships no
-models -- it is the front door: a roster, a version checker, an installer,
-and a gate runner over the released members.
-
-## The released roster
-
-Fifteen packages are released at the 2026-09-02 freeze: nine *core* members
-that every study routes through, and six *supporting* members that
-particular studies need. `cao_roster()` returns this table as a data.frame.
-It is reproduced here for reading.
-
-```{r}
-cropOrchestra::cao_roster()
+```{r library}
+library(cropOrchestra)
 ```
 
-| Member | Tier | Role |
-|---|---|---|
-| flexyBayes | core | the inference hub |
-| PESTO | core | simulator inversion + ensemble UQ |
-| kernR | core | the TACI engine (flagship) |
-| apsimR | core | the mechanism member |
-| quorum | core | the composition layer |
-| terroir | core | the grounded covariate source |
-| masque | core | the sovereignty bridge |
-| decideR | core | the decision closer |
-| grainPlan | core | the practitioner last mile |
-| gpfield | supporting | change-of-support spatial GP |
-| kalmix | supporting | state-space + ACI |
-| koine | supporting | the fourth opinion |
-| proxymix | supporting | the mixture calculus |
-| optimix | supporting | the optimisation meta-layer |
-| cdzoo | supporting | the causal-discovery harness |
+## Why
 
-Roughly half the roster is on a private repository at the freeze date --
-`cao_status()` says so plainly, member by member, rather than presenting a partial install as complete rather than claiming the
-roster installs in full today.
+I have R installed, a nitrogen-rate decision to make, and a colleague's word
+that an "orchestra" of packages can carry it from raw paddock data to a
+defensible number; there are fifteen of them, several are not on CRAN, and
+before I trust any of it I want to know what is actually here, what each
+piece is for, and whether I can check that for myself rather than take it on
+faith. What is `cropOrchestra`, and how do I find out what I have? This is
+the question an agronomist, analyst or breeder asks the first time somebody
+hands them the Crop Analytics Orchestra rather than a single package: not
+"how does the mathematics work" but "what is actually here, and can I trust
+the list". `cropOrchestra` answers it directly. It is not itself an
+analytical package -- it ships no models -- it is the front door: a roster,
+a version checker, an installer, and a gate runner over the released
+members. The other packages in the orchestra take a grain-production
+question -- which nitrogen rate, which variety, when to test, when to
+harvest -- from raw data to a recorded decision, and refuse rather than
+guess where the evidence does not support one; every hand-off between them
+is a typed manifest, every abstention is a typed refusal rather than a
+silent `NA`, and every external fact a package relies on carries provenance
+back to its source. When the whole chain was run end to end on a synthetic
+barley belt (Study A0), it returned a headline number that beat a naive
+baseline by a wide margin; this vignette does not rerun that chain, so the
+number itself, and the sentence that says it is not recomputed here, are
+held for *Limits*. What this vignette does show, on this machine, right
+now, is what `cropOrchestra` itself can check without running a single crop
+model: which packages are on the release roster, which of them are actually
+installed, and whether the two agree.
 
-## The necessity principle
+## What
 
-Every member in the table above earned its place by answering four
-questions in the release's necessity register: (1) which crop question
-needs it, (2) what the nearest tool outside the orchestra is, (3) why that
+`cao_roster()` returns the fifteen-member release roster frozen on
+2026-09-02: nine *core* members that every study routes through, and six
+*supporting* members that particular studies need, each row carrying its
+tier, its necessity-register role, the `max578` repository it publishes
+through, and whether that repository is public yet. A member earns its row
+by answering four questions in the release's necessity register: which crop
+question needs it, what the nearest tool outside the orchestra is, why that
 outside tool does not suffice -- one of four admissible reasons: a missing
 capability, a contract the pipeline requires that the outside tool cannot
 emit, an independent-oracle grounding it does not carry, or a translation
-layer that does not exist outside -- and (4) where it was load-bearing in a
+layer that does not exist outside -- and where it was load-bearing in a
 study, an arbitration, or a fleet gate. The method statement behind every
 member is the same three-step discipline: the orchestra *picks* the best
 available method, old or new, its own or external, *adopts or adapts* it
@@ -79,61 +76,253 @@ wrapping it behind the contract rather than adding new mathematics -- is
 justified by the contract alone, and the register says so plainly rather
 than overstating its novelty.
 
-## The headline result, read with its limits
+`cao_versions()` joins that fixed roster with what this R session can
+actually load: an `installed_version` column read through
+`requireNamespace()` rather than a hard `library()` call, so a member whose
+repository is still private is reported as not installed rather than
+raising an error, plus a `match` column recording whether the installed
+version equals the frozen one.
 
-Study A0 chains the orchestra end to end on a synthetic barley belt: forty
-sites on real Australian grain-belt coordinates with real climate and soil
-covariates, a hidden subsoil constraint at twelve of them, and a mechanism
-lens (`apsimR` + `quorum` + `PESTO`), a field-agreement lens
-(`kernR`'s TACI), a decision lens (`decideR`), a site-value lens (`optimix`),
-and a grower-facing translation (`grainPlan`). The headline number: the
-orchestra's cascade loses 2,960 AUD/ha against the planted truth over 198
-decision cells, versus 5,818 AUD/ha for a naive mechanism-only arm -- 49 per
-cent less loss, and the result reproduces on a re-seeded belt.
+`cao_status()` turns that join into a report: every member classified as
+installed and matching, installed but drifted, or missing, and for every
+missing member, a stated reason -- its repository is not yet public, or it
+is public but not yet mirrored on `max578.r-universe.dev`.
 
-This is a controlled recovery exercise on a synthetic belt, not a real one.
-The shape of the result has real-data cover -- the belt's
-nitrogen-response slopes partially bracket a real barley multi-environment
-trial -- but the magnitudes do not, and they should never be quoted as a
-field result. `cao_status()` and `cao_check()` exist precisely so a claim
-like this one is always read alongside what is actually installed and
-actually gated, not asserted from memory.
+`cao_install()` installs a tier (`"core"`, `"supporting"`, `"all"`) or an
+explicit set of package names, one member at a time, from the `max578`
+r-universe mirror and CRAN, so one member's still-private repository never
+stops the rest from installing; `dry_run = TRUE` resolves and returns the
+plan without installing anything, which is what the next section runs.
 
-## Install, status, check
+`cao_check()` goes one step further than a status report: pointed at a
+local ORCHESTRA leader workspace, it runs the fleet's own gate scripts --
+the cross-member refusal contract and the manifest conformance suite -- and
+reports pass or fail for each; without a workspace, it falls back to
+`cao_status()` plus a load check of every member that is installed.
 
-Installing the roster never fails as a whole because one member's repository
-happens to be private today. Each member's outcome is reported plainly.
+## Do
 
-```{r}
-# Plan only -- no packages are touched.
-cropOrchestra::cao_install(members = "core", dry_run = TRUE)
+### The roster, as frozen
 
-# Install the core roster from the max578 r-universe mirror, falling back
-# to CRAN; report success, failure, or absence per member.
-cropOrchestra::cao_install(members = "core")
+```{r roster}
+roster <- cao_roster()
+nrow(roster)
+attr(roster, "freeze_date")
 ```
 
-`cao_versions()` joins the roster with what is actually loadable in this R
-session, and `cao_status()` turns that into a report that names, for every
-missing member, whether its repository is not yet public or simply not yet
-mirrored on r-universe.
-
-```{r}
-cropOrchestra::cao_versions()
-cropOrchestra::cao_status()
-```
-
-`cao_check()` goes one step further: pointed at the ORCHESTRA leader
-workspace, it runs the fleet's own gate scripts (the refusal contract and
-the manifest conformance suite) and reports pass or fail for each. Without a
-workspace, it falls back to `cao_status()` plus a load-check of every member
-that is installed.
-
-```{r}
-cropOrchestra::cao_check(
-  workspace = "/path/to/ORCHESTRA_dev"
+```{r roster-kable, echo = FALSE}
+knitr::kable(
+  roster[, c("member", "tier", "role")],
+  col.names = c("Member", "Tier", "Role"),
+  caption = paste0(
+    "The frozen roster (", nrow(roster), " members, freeze ",
+    attr(roster, "freeze_date"), ")."
+  )
 )
+```
 
-# No workspace: status plus a load-check of whatever is installed.
-cropOrchestra::cao_check()
+### What is actually installed on this machine
+
+`cao_status()` prints its own report, so the table below is read straight
+from the console, not retyped.
+
+```{r status}
+status <- cao_status()
+```
+
+```{r fig-roster-status, echo = requireNamespace("ggplot2", quietly = TRUE), eval = requireNamespace("ggplot2", quietly = TRUE), fig.cap = "Every roster member at the 2026-09-02 freeze, grouped by tier and coloured by whether the version installed on this machine matches the frozen release, has drifted ahead of it, or is not installed here; the label in each cell reads frozen version / installed version."}
+plot_df <- status$versions
+plot_df$member <- factor(plot_df$member, levels = rev(plot_df$member))
+plot_df$tier_label <- ifelse(
+  plot_df$tier == "core",
+  paste0("core (", sum(plot_df$tier == "core"), ")"),
+  paste0("supporting (", sum(plot_df$tier == "supporting"), ")")
+)
+plot_df$status_label <- gsub("_", " ", plot_df$status, fixed = TRUE)
+ggplot2::ggplot(
+  plot_df, ggplot2::aes(x = 1L, y = member, fill = status_label)
+) +
+  ggplot2::geom_tile(width = 0.9, height = 0.85, colour = "white") +
+  ggplot2::geom_text(
+    ggplot2::aes(label = paste0(
+      version, " / ",
+      ifelse(is.na(installed_version), "-", installed_version)
+    )),
+    colour = "white", size = 3
+  ) +
+  ggplot2::facet_grid(tier_label ~ ., scales = "free_y", space = "free_y") +
+  ggplot2::scale_fill_manual(
+    name = "status",
+    values = c(
+      "installed matching" = "#0072B2",
+      "installed drifted" = "#D55E00",
+      "missing" = "#999999"
+    )
+  ) +
+  ggplot2::labs(
+    x = NULL, y = NULL,
+    title = "Roster status at the 2026-09-02 freeze, this machine"
+  ) +
+  ggplot2::theme_minimal(base_size = 11) +
+  ggplot2::theme(
+    axis.text.x = ggplot2::element_blank(),
+    axis.ticks.x = ggplot2::element_blank(),
+    panel.grid = ggplot2::element_blank(),
+    strip.text.y = ggplot2::element_text(angle = 0)
+  )
+```
+
+```{r fig-roster-status-skip, echo = FALSE, eval = !requireNamespace("ggplot2", quietly = TRUE), results = "asis"}
+cat("ggplot2 is not installed; the roster status figure is skipped.\n")
+```
+
+### Planning an install without touching anything
+
+```{r install-plan}
+plan <- cao_install(members = "core", dry_run = TRUE)
+```
+
+```{r install-plan-kable, echo = FALSE}
+knitr::kable(
+  plan,
+  col.names = c("Member", "Repositories tried"),
+  caption = paste0(
+    "The resolved install plan for the core tier (", nrow(plan),
+    " members); dry run, nothing installed."
+  )
+)
+```
+
+```{r install-real, eval = FALSE}
+# Installs whatever in the plan above is not already present. Skipped here
+# because rendering this vignette must never modify the R library it runs
+# in; run this line yourself against your own library to install the core
+# tier for real.
+cao_install(members = "core")
+```
+
+### Checking the fleet's own gates
+
+```{r check-fallback}
+check_fallback <- cao_check()
+check_fallback$n_loadable
+check_fallback$n_load_failed
+```
+
+```{r check-workspace, eval = FALSE}
+# Needs a local ORCHESTRA leader workspace (not shipped with this package)
+# whose integration/ directory holds the fleet's gate scripts. Skipped here
+# because the path below is specific to the machine this vignette was
+# written on, not portable to a reader's own layout.
+cao_check(workspace = "/path/to/ORCHESTRA_dev")
+```
+
+## Read
+
+```{r read-prep, echo = FALSE}
+n_core <- sum(roster$tier == "core")
+n_supporting <- sum(roster$tier == "supporting")
+n_private <- sum(roster$visibility == "private")
+pct_private <- round(100 * n_private / nrow(roster))
+drifted <- status$versions[status$versions$status == "installed_drifted", ]
+drifted_desc <- paste0(
+  drifted$member, " (frozen ", drifted$version, ", installed ",
+  drifted$installed_version, ")"
+)
+n_installed <- nrow(roster) - status$n_missing
+```
+
+```{r read-text, echo = FALSE, results = "asis"}
+cat(
+  "Of the ", nrow(roster), " roster members, ", n_core, " are core and ",
+  n_supporting, " are supporting; ", n_private, " of the ", nrow(roster),
+  " (", pct_private, " per cent, roughly half) are on a private ",
+  "repository at the freeze date, and `cao_status()` says so plainly, ",
+  "member by member, rather than presenting a partial install as if the ",
+  "roster installs in full today.\n\n",
+  "On the machine this vignette was rendered on, ", status$n_matching,
+  " members match their frozen version exactly and ", status$n_missing,
+  " are missing. ",
+  if (status$n_drifted > 0L) {
+    paste0(
+      status$n_drifted,
+      if (status$n_drifted == 1L) " member has" else " members have",
+      " drifted ahead of its frozen version rather than behind it: ",
+      paste(drifted_desc, collapse = ", "), ".\n\n"
+    )
+  } else {
+    "None has drifted from its frozen version.\n\n"
+  },
+  "Of the ", n_installed, " installed members here, ",
+  check_fallback$n_loadable, " load cleanly through ",
+  "`requireNamespace()` and ", check_fallback$n_load_failed, " do not. ",
+  "The figure shows the same three-way split by tier: a reader can see at ",
+  "a glance whether drift, where it exists, clusters in the core tier ",
+  "every study routes through or in the supporting tier particular ",
+  "studies need, which the roster table above does not show without ",
+  "reading all ", nrow(roster), " rows.\n",
+  sep = ""
+)
+```
+
+## Limits
+
+This vignette shows what `cropOrchestra` itself can determine without
+touching a crop model: a roster, a version comparison, and a load check. It
+does not run `apsimR`, does not fit anything through `kernR` or
+`flexyBayes`, and does not price a decision through `decideR` -- it cannot
+speak to whether any member's science is correct, only to whether the
+member is present and at the frozen version. The install call above is a
+dry run for the same reason `cao_check(workspace = ...)` above is not
+evaluated: rendering this vignette must never modify the R library it runs
+in, and the workspace path is specific to the machine it was written on
+rather than portable to a reader's own layout; a reader who wants either
+result runs the commands shown, verbatim, against their own library and
+their own copy of the ORCHESTRA leader workspace.
+
+The headline claim behind the necessity register -- that when the roster's
+core chain (`apsimR` + `quorum` + `PESTO` as the mechanism lens, `kernR`'s
+TACI as the field-agreement lens, `decideR` as the decision lens, `optimix`
+as the site-value lens, and `grainPlan` as the grower-facing translation)
+was run end to end on a synthetic barley belt, the orchestra's cascade lost
+2,960 AUD per hectare against the planted truth over 198 decision cells,
+against 5,818 AUD per hectare for a naive mechanism-only arm -- 49 per cent
+less loss, reproducing on a re-seeded belt -- is not recomputed in this
+vignette; it is cited to Study A0's own ledger (`studies/A0/REPORT.md` and
+`SUMMARY.md` in the ORCHESTRA leader workspace) and should be read there,
+not trusted from this paragraph alone. It is a controlled recovery exercise
+on a synthetic belt, not a real one: the shape of the result has real-data
+cover -- the belt's nitrogen-response slopes partially bracket a real
+barley multi-environment trial -- but the magnitudes do not, and they
+should never be quoted as a field result. `cao_status()` and `cao_check()`
+exist precisely so a claim like this one is always read alongside what is
+actually installed and actually gated on the machine making the claim, not
+asserted from memory.
+
+Everything numeric in *Read* above describes one machine at one moment: a
+different library, a package upgraded after this vignette was rendered, or
+the roster's next freeze would all change the counts without changing
+anything this vignette asserts about how to find them out.
+
+## What to read next
+
+*A quorum of lenses on Study A0* (in `quorum`) resolves the same 200
+recorded decision cells the headline number above comes from, lens by
+lens, and is the closest a reader can get to the cascade's mechanics
+without rerunning the study. *From an inference result to a grain plan*
+(in `grainPlan`) picks up exactly where this front door leaves off, turning
+a manifest-typed inference result into a grower-facing plan. *Getting
+started with decideR* introduces the decision lens the headline cascade
+above relies on.
+
+## Reproduce
+
+This vignette draws no random numbers and calls no external service: every
+table and figure is a deterministic function of the roster shipped inside
+this package and of what is installed in the R library it is rendered
+against, which is why the counts above are read live rather than typed by
+hand.
+
+```{r session-info}
+sessionInfo()
 ```

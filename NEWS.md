@@ -4,6 +4,11 @@
   `max578/quorum`), following the 2026-09-02 upstream rename and
   re-dedication as the consensus layer. `cao_roster()`, the DESCRIPTION
   `Suggests` list, and the vignette roster table are updated to match.
+* The vignette is brought to the orchestra vignette quality bar v1: one
+  question stated in a new user's words, the Why/What/Do/Read/Limits/What
+  to read next/Reproduce shape, a colourblind-safe tiered figure of roster
+  status on the rendering machine, and every number computed live rather
+  than typed by hand. `ggplot2` added to `Suggests` for the figure.
 
 # cropOrchestra 0.1.0
 

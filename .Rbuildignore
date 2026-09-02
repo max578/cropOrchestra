@@ -1,0 +1,7 @@
+^.claude$
+^.positai$
+^.cursor$
+^LICENSE\.md$
+^.*\.Rproj$
+^\.Rproj\.user$
+^README\.Rmd$

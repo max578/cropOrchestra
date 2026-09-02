@@ -1,0 +1,41 @@
+Package: cropOrchestra
+Title: The Crop Analytics Orchestra
+Version: 0.1.0
+Authors@R:
+    person("Max", "Moldovan", email = "max.moldovan@adelaide.edu.au",
+           role = c("aut", "cre", "cph"),
+           comment = c(ORCID = "0000-0001-9680-8474"))
+Description: Purpose-built R packages that analyse a grain-production
+    question end to end -- typed manifests, typed refusals, provenance --
+    with an installer and status checker for the released roster.
+License: MIT + file LICENSE
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.3
+Language: en-AU
+Config/testthat/edition: 3
+Imports:
+    tools,
+    utils
+Suggests:
+    apsimR,
+    cdzoo,
+    decideR,
+    flexyBayes,
+    flexyBayesOrchestra,
+    gpfield,
+    grainPlan,
+    kalmix,
+    kernR,
+    knitr,
+    koine,
+    masque,
+    optimix,
+    orchestraManifest,
+    PESTO,
+    proxymix,
+    rmarkdown,
+    terroir,
+    testthat (>= 3.0.0)
+VignetteBuilder: knitr
+Additional_repositories: https://max578.r-universe.dev

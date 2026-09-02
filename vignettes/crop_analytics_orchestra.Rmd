@@ -1,0 +1,139 @@
+---
+title: "The Crop Analytics Orchestra"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{The Crop Analytics Orchestra}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  eval = FALSE
+)
+```
+
+## What this is
+
+The Crop Analytics Orchestra is a set of purpose-built R packages, published
+under the `max578` namespace, that together take a grain-production question
+-- which nitrogen rate, which variety, when to test, when to harvest -- from
+raw data to a recorded decision, and refuse rather than guess where the
+evidence does not support one. Every hand-off between packages is a typed
+manifest, every abstention is a typed refusal rather than a silent `NA`, and
+every external fact a package relies on carries provenance back to its
+source. `cropOrchestra` is not itself an analytical package -- it ships no
+models -- it is the front door: a roster, a version checker, an installer,
+and a gate runner over the released members.
+
+## The released roster
+
+Fifteen packages are released at the 2026-09-02 freeze: nine *core* members
+that every study routes through, and six *supporting* members that
+particular studies need. `cao_roster()` returns this table as a data.frame.
+It is reproduced here for reading.
+
+```{r}
+cropOrchestra::cao_roster()
+```
+
+| Member | Tier | Role |
+|---|---|---|
+| flexyBayes | core | the inference hub |
+| PESTO | core | simulator inversion + ensemble UQ |
+| kernR | core | the TACI engine (flagship) |
+| apsimR | core | the mechanism member |
+| flexyBayesOrchestra | core | the composition layer |
+| terroir | core | the grounded covariate source |
+| masque | core | the sovereignty bridge |
+| decideR | core | the decision closer |
+| grainPlan | core | the practitioner last mile |
+| gpfield | supporting | change-of-support spatial GP |
+| kalmix | supporting | state-space + ACI |
+| koine | supporting | the fourth opinion |
+| proxymix | supporting | the mixture calculus |
+| optimix | supporting | the optimisation meta-layer |
+| cdzoo | supporting | the causal-discovery harness |
+
+Roughly half the roster is on a private repository at the freeze date --
+`cao_status()` says so honestly, member by member, rather than pretending the
+roster installs in full today.
+
+## The necessity principle
+
+Every member in the table above earned its place by answering four
+questions in the release's necessity register: (1) which crop question
+needs it, (2) what the nearest tool outside the orchestra is, (3) why that
+outside tool does not suffice -- one of four admissible reasons: a missing
+capability, a contract the pipeline requires that the outside tool cannot
+emit, an independent-oracle grounding it does not carry, or a translation
+layer that does not exist outside -- and (4) where it was load-bearing in a
+study, an arbitration, or a fleet gate. The method statement behind every
+member is the same three-step discipline: the orchestra *picks* the best
+available method, old or new, its own or external, *adopts or adapts* it
+behind the typed-manifest contract, and *translates* it into a grower- or
+breeder-facing decision. A member that only adapts an external tool --
+wrapping it behind the contract rather than adding new mathematics -- is
+justified by the contract alone, and the register says so plainly rather
+than overstating its novelty.
+
+## The headline result, read honestly
+
+Study A0 chains the orchestra end to end on a synthetic barley belt: forty
+sites on real Australian grain-belt coordinates with real climate and soil
+covariates, a hidden subsoil constraint at twelve of them, and a mechanism
+lens (`apsimR` + `flexyBayesOrchestra` + `PESTO`), a field-agreement lens
+(`kernR`'s TACI), a decision lens (`decideR`), a site-value lens (`optimix`),
+and a grower-facing translation (`grainPlan`). The headline number: the
+orchestra's cascade loses 2,960 AUD/ha against the planted truth over 198
+decision cells, versus 5,818 AUD/ha for a naive mechanism-only arm -- 49 per
+cent less loss, and the result reproduces on a re-seeded belt.
+
+This is a controlled recovery exercise on a synthetic belt, not a real one.
+The shape of the result has real-data cover -- the belt's
+nitrogen-response slopes partially bracket a real barley multi-environment
+trial -- but the magnitudes do not, and they should never be quoted as a
+field result. `cao_status()` and `cao_check()` exist precisely so a claim
+like this one is always read alongside what is actually installed and
+actually gated, not asserted from memory.
+
+## Install, status, check
+
+Installing the roster never fails as a whole because one member's repository
+happens to be private today. Each member's outcome is reported honestly.
+
+```{r}
+# Plan only -- no packages are touched.
+cropOrchestra::cao_install(members = "core", dry_run = TRUE)
+
+# Install the core roster from the max578 r-universe mirror, falling back
+# to CRAN; report success, failure, or absence per member.
+cropOrchestra::cao_install(members = "core")
+```
+
+`cao_versions()` joins the roster with what is actually loadable in this R
+session, and `cao_status()` turns that into a report that names, for every
+missing member, whether its repository is not yet public or simply not yet
+mirrored on r-universe.
+
+```{r}
+cropOrchestra::cao_versions()
+cropOrchestra::cao_status()
+```
+
+`cao_check()` goes one step further: pointed at the ORCHESTRA leader
+workspace, it runs the fleet's own gate scripts (the refusal contract and
+the manifest conformance suite) and reports pass or fail for each. Without a
+workspace, it falls back to `cao_status()` plus a load-check of every member
+that is installed.
+
+```{r}
+cropOrchestra::cao_check(
+  workspace = "/path/to/ORCHESTRA_dev"
+)
+
+# No workspace: status plus a load-check of whatever is installed.
+cropOrchestra::cao_check()
+```

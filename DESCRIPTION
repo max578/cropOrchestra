@@ -11,7 +11,6 @@ Description: Purpose-built R packages that analyse a grain-production
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.3.3
 Language: en-AU
 Config/testthat/edition: 3
 Imports:
@@ -40,3 +39,4 @@ Suggests:
     testthat (>= 3.0.0)
 VignetteBuilder: knitr
 Additional_repositories: https://max578.r-universe.dev
+Config/roxygen2/version: 8.1.0

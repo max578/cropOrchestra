@@ -32,11 +32,11 @@ cao_status()
 \seealso{
 \code{\link[=cao_versions]{cao_versions()}}, \code{\link[=cao_check]{cao_check()}}
 
-Other roster: 
-\code{\link{cao_check}()},
-\code{\link{cao_install}()},
-\code{\link{cao_roster}()},
-\code{\link{cao_versions}()}
+Other roster:
+\code{\link[=cao_check]{cao_check()}},
+\code{\link[=cao_install]{cao_install()}},
+\code{\link[=cao_roster]{cao_roster()}},
+\code{\link[=cao_versions]{cao_versions()}}
 }
 \author{
 Max Moldovan, \email{max.moldovan@adelaide.edu.au}

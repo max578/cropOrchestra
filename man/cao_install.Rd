@@ -45,11 +45,11 @@ cao_install(members = "core", dry_run = TRUE)
 \seealso{
 \code{\link[=cao_roster]{cao_roster()}}, \code{\link[=cao_check]{cao_check()}}
 
-Other roster: 
-\code{\link{cao_check}()},
-\code{\link{cao_roster}()},
-\code{\link{cao_status}()},
-\code{\link{cao_versions}()}
+Other roster:
+\code{\link[=cao_check]{cao_check()}},
+\code{\link[=cao_roster]{cao_roster()}},
+\code{\link[=cao_status]{cao_status()}},
+\code{\link[=cao_versions]{cao_versions()}}
 }
 \author{
 Max Moldovan, \email{max.moldovan@adelaide.edu.au}

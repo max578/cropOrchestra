@@ -9,6 +9,8 @@ Description: Purpose-built R packages that analyse a grain-production
     question end to end -- typed manifests, typed refusals, provenance --
     with an installer and status checker for the released roster.
 License: MIT + file LICENSE
+URL: https://github.com/max578/cropOrchestra
+BugReports: https://github.com/max578/cropOrchestra/issues
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 Language: en-AU
@@ -39,4 +41,12 @@ Suggests:
     testthat (>= 3.0.0)
 VignetteBuilder: knitr
 Additional_repositories: https://max578.r-universe.dev
+Remotes:
+    max578/decideR,
+    max578/gpfield,
+    max578/grainPlan,
+    max578/kernR,
+    max578/masque,
+    max578/PESTO,
+    max578/proxymix
 Config/roxygen2/version: 8.1.0

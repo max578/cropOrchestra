@@ -1,6 +1,7 @@
-^.claude$
-^.positai$
-^.cursor$
+^\.claude$
+^\.positai$
+^\.cursor$
+^\.github$
 ^LICENSE\.md$
 ^.*\.Rproj$
 ^\.Rproj\.user$

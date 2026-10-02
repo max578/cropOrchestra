@@ -13,6 +13,8 @@ jobs:
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
       R_KEEP_PKG_SOURCE: yes
+      # members whose repositories are private cannot be installed here
+      _R_CHECK_FORCE_SUGGESTS_: false
     steps:
       - uses: actions/checkout@v4
 
@@ -25,7 +27,22 @@ jobs:
 
       - uses: r-lib/actions/setup-r-dependencies@v2
         with:
-          extra-packages: any::rcmdcheck
+          dependencies: '"hard"'
+          extra-packages: |
+            any::rcmdcheck
+            any::testthat
+            any::knitr
+            any::rmarkdown
+            any::ggplot2
+            max578/decideR
+            max578/gpfield
+            max578/grainPlan
+            max578/kalmix
+            max578/kernR
+            max578/masque
+            max578/orchestraManifest
+            max578/PESTO
+            max578/proxymix
           needs: check
 
       - uses: r-lib/actions/check-r-package@v2

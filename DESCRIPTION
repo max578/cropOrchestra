@@ -45,8 +45,10 @@ Remotes:
     max578/decideR,
     max578/gpfield,
     max578/grainPlan,
+    max578/kalmix,
     max578/kernR,
     max578/masque,
+    max578/orchestraManifest,
     max578/PESTO,
     max578/proxymix
 Config/roxygen2/version: 8.1.0

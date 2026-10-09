@@ -1,4 +1,4 @@
-# cropOrchestra (development version)
+# cropOrchestra 0.1.1
 
 * Roster entry renamed: `flexyBayesOrchestra` is now `quorum` (`quorum_dev/quorum`,
   `max578/quorum`), following the 2026-09-02 upstream rename and
@@ -22,7 +22,7 @@
   current R session, `NA` where a member is not installed.
 * `cao_status()` classifies every member as installed-and-matching,
   installed-but-drifted, or missing, and for a missing member gives the
-  honest reason (private repository not yet public, or not yet mirrored on
+  reason (private repository not yet public, or not yet mirrored on
   r-universe).
 * `cao_install()` installs the requested tier or an explicit set of package
   names from the `max578` r-universe mirror and CRAN, one member at a time,

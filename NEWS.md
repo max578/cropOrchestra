@@ -1,3 +1,7 @@
+# cropOrchestra 0.1.2
+
+* Documentation names kernR's mechanism-consistency test directly.
+
 # cropOrchestra 0.1.1
 
 * Roster entry renamed: `flexyBayesOrchestra` is now `quorum` (`quorum_dev/quorum`,

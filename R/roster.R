@@ -28,7 +28,7 @@
   role = c(
     "the inference hub",
     "simulator inversion + ensemble UQ",
-    "the TACI engine (flagship)",
+    "the mechanism-consistency test",
     "the mechanism member",
     "the consensus layer",
     "the grounded covariate source",

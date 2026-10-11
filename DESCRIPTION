@@ -1,6 +1,6 @@
 Package: cropOrchestra
 Title: The Crop Analytics Orchestra
-Version: 0.1.1
+Version: 0.1.2
 Authors@R:
     person("Max", "Moldovan", email = "max.moldovan@adelaide.edu.au",
            role = c("aut", "cre", "cph"),

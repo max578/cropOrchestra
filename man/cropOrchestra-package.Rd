@@ -20,6 +20,14 @@ and \code{\link[=cao_install]{cao_install()}} (fetch what is available). \code{\
 fleet's gate scripts when a leader workspace is supplied, and otherwise
 falls back to a status-plus-load-check.
 }
+\seealso{
+Useful links:
+\itemize{
+  \item \url{https://github.com/max578/cropOrchestra}
+  \item Report bugs at \url{https://github.com/max578/cropOrchestra/issues}
+}
+
+}
 \author{
 \strong{Maintainer}: Max Moldovan \email{max.moldovan@adelaide.edu.au} (\href{https://orcid.org/0000-0001-9680-8474}{ORCID}) [copyright holder]
 

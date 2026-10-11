@@ -281,8 +281,8 @@ result runs the commands shown, verbatim, against their own library and
 their own copy of the ORCHESTRA leader workspace.
 
 The headline claim behind the necessity register -- that when the roster's
-core chain (`apsimR` + `quorum` + `PESTO` as the mechanism lens, `kernR`'s
-TACI as the field-agreement lens, `decideR` as the decision lens, `optimix`
+core chain (`apsimR` + `quorum` + `PESTO` as the mechanism lens, `kernR`
+as the field-agreement lens, `decideR` as the decision lens, `optimix`
 as the site-value lens, and `grainPlan` as the grower-facing translation)
 was run end to end on a synthetic barley belt, the orchestra's cascade lost
 2,960 AUD per hectare against the planted truth over 198 decision cells,

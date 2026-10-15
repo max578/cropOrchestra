@@ -1,4 +1,9 @@
-# cropOrchestra
+# cropOrchestra <img src="man/figures/logo.png" align="right" height="139" alt="cropOrchestra logo" />
+
+<!-- badges: start -->
+[![R-CMD-check](https://github.com/max578/cropOrchestra/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/max578/cropOrchestra/actions/workflows/R-CMD-check.yaml)
+[![Codecov test coverage](https://codecov.io/gh/max578/cropOrchestra/graph/badge.svg)](https://app.codecov.io/gh/max578/cropOrchestra)
+<!-- badges: end -->
 
 The Crop Analytics Orchestra front door -- a roster, a version checker, an
 installer, and a gate runner over the fifteen `max578` R packages of the
@@ -6,6 +11,22 @@ installer, and a gate runner over the fifteen `max578` R packages of the
 a recorded decision.
 `cropOrchestra` ships no models of its own; every scientific verb lives in a
 released member.
+
+## Related packages
+
+- [tidyverse](https://CRAN.R-project.org/package=tidyverse) installs and
+  loads the core tidyverse packages in a single step.
+- [tidymodels](https://CRAN.R-project.org/package=tidymodels) does the same
+  for the tidymodels collection of modelling packages.
+- [easystats](https://CRAN.R-project.org/package=easystats) is a
+  meta-package that installs and loads the easystats packages for
+  statistical modelling, visualisation and reporting.
+
+These meta-packages depend on their members, so installing one installs
+the whole collection. cropOrchestra depends on none of its members and
+attaches none of them. It lists the release roster, compares the installed
+versions with the frozen release, installs the members you choose, and
+reports each one that is missing or fails instead of stopping.
 
 ## Installation
 

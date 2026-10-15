@@ -1,3 +1,9 @@
+# cropOrchestra (development version)
+
+* The package has a logo.
+* README has status badges and lists related packages.
+* CI runs lintr (report-only) and test coverage.
+
 # cropOrchestra 0.1.2
 
 * Documentation names kernR's mechanism-consistency test directly.

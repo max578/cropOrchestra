@@ -1,8 +1,10 @@
 # cropOrchestra <img src="man/figures/logo.png" align="right" height="139" alt="cropOrchestra logo" />
 
 <!-- badges: start -->
+[![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
 [![R-CMD-check](https://github.com/max578/cropOrchestra/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/max578/cropOrchestra/actions/workflows/R-CMD-check.yaml)
 [![Codecov test coverage](https://codecov.io/gh/max578/cropOrchestra/graph/badge.svg)](https://app.codecov.io/gh/max578/cropOrchestra)
+[![pkgdown](https://github.com/max578/cropOrchestra/actions/workflows/pkgdown.yaml/badge.svg)](https://max578.github.io/cropOrchestra/)
 <!-- badges: end -->
 
 The Crop Analytics Orchestra front door -- a roster, a version checker, an

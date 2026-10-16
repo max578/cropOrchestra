@@ -1,5 +1,5 @@
 # Citation entry for cropOrchestra.
-# Title, author, version and URL come from DESCRIPTION (via `meta`).
+# Title, author and version come from DESCRIPTION (via `meta`).
 # The year is taken from the Date field when present.
 
 year <- if (!is.null(meta$Date)) sub("-.*", "", meta$Date) else "2026"
@@ -10,5 +10,5 @@ bibentry(
   author = eval(parse(text = meta$`Authors@R`), envir = asNamespace("utils")),
   year = year,
   note = paste("R package version", meta$Version),
-  url = meta$URL
+  url = "https://github.com/max578/cropOrchestra"
 )

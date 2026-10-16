@@ -24,6 +24,7 @@ falls back to a status-plus-load-check.
 Useful links:
 \itemize{
   \item \url{https://github.com/max578/cropOrchestra}
+  \item \url{https://max578.github.io/cropOrchestra/}
   \item Report bugs at \url{https://github.com/max578/cropOrchestra/issues}
 }
 

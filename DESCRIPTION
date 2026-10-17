@@ -43,6 +43,7 @@ VignetteBuilder: knitr
 Additional_repositories: https://max578.r-universe.dev
 Remotes:
     max578/decideR,
+    max578/flexyBayes,
     max578/gpfield,
     max578/grainPlan,
     max578/kalmix,
@@ -50,5 +51,6 @@ Remotes:
     max578/masque,
     max578/orchestraManifest,
     max578/PESTO,
-    max578/proxymix
+    max578/proxymix,
+    max578/quorum
 Config/roxygen2/version: 8.1.0
